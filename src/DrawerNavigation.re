@@ -17,7 +17,7 @@ module type TabConfig = {
   let items: list(item);
   let drawerOptions: drawerOptions;
   let getItem:
-    item => (string, unit => ReasonReact.reactElement, screenOptions);
+    item => (string, unit => ReasonReact.reactClass, screenOptions);
 };
 
 module Create = (Config: TabConfig) => {
@@ -26,7 +26,7 @@ module Create = (Config: TabConfig) => {
 
   [@bs.deriving abstract]
   type routeConfig = {
-    screen: unit => ReasonReact.reactElement,
+    screen: unit => ReasonReact.reactClass,
     navigationOptions: screenOptions,
   };
 

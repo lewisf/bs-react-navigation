@@ -7,6 +7,8 @@ type navigation('a) = {
 type screenOptions = {
   [@bs.optional]
   title: string,
+  [@bs.optional]
+  headerStyle: BsReactNative.Style.t,
 };
 
 module type StackConfig = {

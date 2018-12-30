@@ -57,18 +57,16 @@ module type TabConfig = {
   type order = list(tabs);
   let order: order;
   let tabBarOptions: tabBarOptions;
-  let getTab:
-    tabs => (Js.Dict.key, navigation => ReasonReact.reactElement, screenOptions);
+  let getTab: tabs => (Js.Dict.key, ReasonReact.reactClass, screenOptions);
 };
 
 module Create = (Config: TabConfig) => {
   [@bs.deriving abstract]
   type navigatorConfig = {initialRouteName: string};
-  
 
   [@bs.deriving abstract]
   type routeConfig = {
-    screen: navigation => ReasonReact.reactElement,
+    screen: ReasonReact.reactClass,
     navigationOptions: screenOptions,
   };
 
